@@ -7,7 +7,7 @@
  */
 
 
-var AliyunMTS = require("./index");
+var AliyunMTS = require("./client");
 
 var Promise = require("bluebird");
 
