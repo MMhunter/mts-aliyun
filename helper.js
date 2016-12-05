@@ -94,10 +94,13 @@ function MTSHelper(options,checkInterval){
 
         mtsClient.SubmitJobs(Input,[Output],options.PipelineId,Input.Bucket,Input.Location).then(function(jobs){
             jobs.forEach(function(job){
-                convertJobs.push({
-                    deferred:deferred,
-                    JobId:job.Job.JobId,
-                });
+                console.log(job);
+                if(job.Job.Success && job.Job.JobId != null) {
+                    convertJobs.push({
+                        deferred: deferred,
+                        JobId: job.Job.JobId,
+                    });
+                }
             });
         });
 
