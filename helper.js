@@ -15,7 +15,7 @@ function MTSHelper(options,checkInterval){
 
     var analyzeJobs = [];
     var convertJobs = [];
-    if(checkInterval == null) checkInterval = 1000;
+    if(checkInterval == null) checkInterval = 5000;
 
     var mtsClient = new AliyunMTS({
         Region:  options.Region,
@@ -82,10 +82,17 @@ function MTSHelper(options,checkInterval){
 
         var deferred = defer();
 
-        mtsClient.SubmitJobs(Input,[{
-            "OutputObject":Input.Object,
-            "TemplateId":"S00000000-200020"
-        }],options.PipelineId,Input.Bucket,Input.Location).then(function(jobs){
+        var Output =
+            {
+                "OutputObject":Input.Object,
+                "TemplateId":"S00000000-200020"
+            };
+
+        if(options.WaterMarks != null){
+            Output.WaterMarks = options.WaterMarks;
+        }
+
+        mtsClient.SubmitJobs(Input,[Output],options.PipelineId,Input.Bucket,Input.Location).then(function(jobs){
             jobs.forEach(function(job){
                 convertJobs.push({
                     deferred:deferred,
