@@ -1,0 +1,30 @@
+{
+  "name": "mts-aliyun",
+  "version": "1.0.0",
+  "description": "Nodejs SDK for aliyun MTS service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MMhunter/mts-aliyun.git"
+  },
+  "keywords": [
+    "MTS",
+    "Aliyun"
+  ],
+  "author": "MMhunter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MMhunter/mts-aliyun/issues"
+  },
+  "homepage": "https://github.com/MMhunter/mts-aliyun#readme",
+  "dependencies": {
+    "co": "^4.6.0",
+    "crypto": "0.0.3",
+    "dateformat": "^2.0.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}
